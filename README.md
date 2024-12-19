@@ -73,3 +73,4 @@ Rebuild and flash the project after making this change.
 - [Zephyr RTOS Documentation](https://docs.zephyrproject.org/latest/)
 - [Set devicetree overlays](https://docs.zephyrproject.org/latest/build/dts/howtos.html#set-devicetree-overlays)
 - [Setting Kconfig configuration values - The Initial Configuration](https://docs.zephyrproject.org/latest/build/kconfig/setting.html#the-initial-configuration)
+- [Blinky](https://docs.zephyrproject.org/latest/samples/basic/blinky/README.html#blinky)
