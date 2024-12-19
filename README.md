@@ -57,7 +57,7 @@ Fatal exception (0): IllegalInstruction
 epc1=0x400d1422, epc2=0x00000000, epc3=0x00000000, excvaddr=0x00000000, depc=0x00000000
 ```
 
-This indicates the ESP32 chip revision is unsupported. For older revisions, such as `ESP32-D0WDQ6 (revision v1.0)`, enable support by adding the following line to the `boards/esp32_devkitc_wroom.conf` file:
+This indicates the ESP32 chip revision is unsupported. For older revisions, such as `ESP32-D0WDQ6 (revision v1.0)`, enable support by adding the following line to the `boards/esp32_devkitc_wroom.conf` or `prj.conf` file:
 
 ```kconfig
 CONFIG_ESP32_USE_UNSUPPORTED_REVISION=y
@@ -73,4 +73,4 @@ Rebuild and flash the project after making this change.
 - [Zephyr RTOS Documentation](https://docs.zephyrproject.org/latest/)
 - [Set devicetree overlays](https://docs.zephyrproject.org/latest/build/dts/howtos.html#set-devicetree-overlays)
 - [Setting Kconfig configuration values - The Initial Configuration](https://docs.zephyrproject.org/latest/build/kconfig/setting.html#the-initial-configuration)
-- [Blinky](https://docs.zephyrproject.org/latest/samples/basic/blinky/README.html#blinky)
+- [ESP32-DevKitC-WROOM](https://docs.zephyrproject.org/latest/boards/espressif/esp32_devkitc_wroom/doc/index.html)

@@ -126,6 +126,6 @@ west build -b esp32_devkitc_wroom/esp32/procpu -p always -- -DDTC_OVERLAY_FILE=b
 - [Set devicetree overlays](https://docs.zephyrproject.org/latest/build/dts/howtos.html#set-devicetree-overlays)
 - [Setting Kconfig configuration values - The Initial Configuration](https://docs.zephyrproject.org/latest/build/kconfig/setting.html#the-initial-configuration)
 - [One Time CMake Arguments](https://docs.zephyrproject.org/latest/develop/west/build-flash-debug.html#one-time-cmake-arguments)
-- [ESP32-DevKitC-WROOM](https://docs.zephyrproject.org/latest/boards/espressif/esp32_devkitc_wroom/doc/index.html)
+- [Blinky](https://docs.zephyrproject.org/latest/samples/basic/blinky/README.html#blinky)
 - [[Legado] Zephyr RTOS no ESP32 – Primeiros Passos](https://embarcados.com.br/zephyr-rtos-no-esp32-primeiros-passos/)
 - [[Legado] Blink LED no ESP32 e Zephyr RTOS](https://embarcados.com.br/blink-led-no-esp32-e-zephyr-rtos/)
