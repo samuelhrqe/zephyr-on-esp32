@@ -90,7 +90,7 @@ The name of the `.overlay` and `.conf` is of your choice. But it is recommended 
    Use the following command to build the project for the ESP32 board:
 
    ```bash
-   west build -b esp32_devkitc_wroom/esp32/procpu -p always
+   west build -b esp32_devkitc_wroom/esp32/appcpu -p always
    ```
 
 2. **Flash the Firmware**  
