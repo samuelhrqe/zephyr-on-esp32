@@ -3,7 +3,16 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/sys/printk.h>
 
-#define DEBOUNCE_DELAY 50
+#define LED_NODE DT_NODELABEL(blinking_led)
+#define BUTTON_NODE DT_NODELABEL(push_button)
+
+#if !DT_NODE_EXISTS(LED_NODE) || !DT_NODE_HAS_STATUS_OKAY(LED_NODE)
+    #error "LED node not founded or not okay"
+#endif
+
+#if !DT_NODE_EXISTS(BUTTON_NODE) || !DT_NODE_HAS_STATUS_OKAY(BUTTON_NODE)
+    #error "Button node not founded or not okay"
+#endif
 
 /**
  * @brief Configure the push button and the blinking LED
@@ -13,16 +22,20 @@
  */
 
 static struct gpio_callback button_cb_data;
-static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(blinking_led), gpios);
-static const struct gpio_dt_spec button = GPIO_DT_SPEC_GET(DT_NODELABEL(push_button), gpios);
-static int last_read = 0;
+static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
+static const struct gpio_dt_spec button = GPIO_DT_SPEC_GET(BUTTON_NODE, gpios);
+static int64_t last_time = 0;
+
+// Get the debounce interval from the devicetree
+#define DEBOUNCE_INTERVAL_MS DT_PROP(DT_PATH(buttons), debounce_interval_ms)
 
 void button_pressed(const struct device *dev, struct gpio_callback *cb, uint32_t pins) {
-    if (gpio_pin_get_dt(&button)) {
-        if (k_uptime_get() - last_read >= DEBOUNCE_DELAY) {
-            gpio_pin_toggle_dt(&led);
+    if ((k_uptime_get() - last_time) >= DEBOUNCE_INTERVAL_MS) {
+        int ret = gpio_pin_toggle_dt(&led);
+        if (ret != 0) {
+            printk("Failed to toggle LED GPIO pin\r\n");
         }
-        last_read = k_uptime_get();
+        last_time = k_uptime_get();
     }
 }
 
