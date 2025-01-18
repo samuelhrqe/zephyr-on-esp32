@@ -80,5 +80,7 @@ int main(void) {
 
             flag_button_pressed = false;
         }
+
+        k_msleep(10);
     }
 }
