@@ -2,7 +2,7 @@
 	leds {
 		compatible = "gpio-leds"; // This is the driver that will be used to control the LED
 		blinking_led: blinking_led {  // This is the name of the LED
-			gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>; // This is the GPIO pin that the LED is connected to
+			gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>; // The GPIO pin that the LED is connected to
 			label = "LED_0"; // This is the label that will be used to control the LED
 		};
 	};

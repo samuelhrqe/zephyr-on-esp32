@@ -12,7 +12,7 @@
 static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(blinking_led), gpios);
 
 int main(void) {
-    if (!device_is_ready(led.port)) {
+    if (!device_is_ready(led.port)) { // device_is_ready_dt(&led)
         printk("GPIO device is not ready\r\n");
         return 0;
     }
