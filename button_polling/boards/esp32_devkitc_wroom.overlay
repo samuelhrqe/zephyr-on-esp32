@@ -1,10 +1,11 @@
 / {
 	aliases {
 		my-button = &push_button; // This is the alias for the button
+		my-led = &blinking_led; // This is the alias for the LED
 	};
 	leds {
 		compatible = "gpio-leds"; // This is the driver that will be used to control the LED
-		blinking_led: blinking_led {  // Node name for the LED
+		blinking_led: d25 {  // Node name for the LED
 			gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>; // This is the GPIO pin that the LED is connected to
 			label = "LED_0"; // This is the label that will be used to control the LED
 			status = "okay";
