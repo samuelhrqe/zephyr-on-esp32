@@ -1,0 +1,24 @@
+/ {
+	aliases {
+		my-button = &push_button; // This is the alias for the button
+	};
+	leds {
+		compatible = "gpio-leds"; // This is the driver that will be used to control the LED
+		blinking_led: blinking_led {  // Node name for the LED
+			gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>; // This is the GPIO pin that the LED is connected to
+			label = "LED_0"; // This is the label that will be used to control the LED
+			status = "okay";
+		};
+	};
+
+	buttons {
+		compatible = "gpio-keys"; // This is the driver that will be used to control the button
+		polling-mode; // This enables pooling mode for the button
+
+		push_button: d27 { // Node name for the button
+			gpios = <&gpio0 27 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // This is the GPIO pin that the button is connected to
+			label = "BUTTON_27";
+			status = "okay";
+		};
+	};
+};
