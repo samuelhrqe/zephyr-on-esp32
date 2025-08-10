@@ -1,0 +1,23 @@
+/{
+	aliases {
+		my-adc = &adc1; // This is the alias for the ADC
+		my-adc-channel = &adc1_ch0; // This is the alias for the ADC channel
+	};
+};
+
+// ADC1 (adc1) channel 0 is connected to GPIO4
+// Corresponds to ADC2_CH0 in the ESP32 Technical Reference Manual
+&adc1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	adc1_ch0: channel@0 {
+		reg = <0>; // This is the channel number
+		zephyr,gain = "ADC_GAIN_1_4"; // This is the gain setting
+		zephyr,reference = "ADC_REF_INTERNAL"; // This is the reference voltage
+		zephyr,vref-mv = <3900>; // 1.1V * 3.54 = 3.894V
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>; // This is the acquisition time
+		zephyr,resolution = <12>; // This is the resolution
+	};
+};
